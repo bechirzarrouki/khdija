@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateequipementsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,12 +16,12 @@ return new class extends Migration
         Schema::create('equipements', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description')->nullable();
-            $table->timestamp('updated_at')->nullable();
-            $table->timestamp('deleted_at')->nullable();
-            $table->timestamp('created_at')->nullable();
+            $table->text('description');
+            $table->date('da'); // Assuming 'da' is a date field, you can change it to the appropriate type if needed
+            $table->date('df'); 
+            $table->softDeletes(); // Adds the 'deleted_at' column for soft deletes
+            $table->timestamps();
         });
-        
     }
 
     /**
@@ -33,4 +33,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('equipements');
     }
-};
+}

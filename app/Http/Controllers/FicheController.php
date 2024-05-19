@@ -41,7 +41,10 @@ class FicheController extends Controller
             $fiche->description = $request->description;
         }
     
-        if (!empty($request->type)) {
+        if (!empty($request->da)) {
+            $fiche->type = $request->type;
+        }
+        if (!empty($request->df)) {
             $fiche->type = $request->type;
         }
         $fiche->save();

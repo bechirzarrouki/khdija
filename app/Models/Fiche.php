@@ -14,7 +14,7 @@ class Fiche extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'description', 'type'];
+    protected $fillable = ['name', 'description'];
 
     /**
      * The attributes that should be mutated to dates.
