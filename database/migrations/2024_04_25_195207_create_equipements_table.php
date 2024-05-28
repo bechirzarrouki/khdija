@@ -17,6 +17,7 @@ class CreateequipementsTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
+            $table->text('data');
             $table->date('da'); // Assuming 'da' is a date field, you can change it to the appropriate type if needed
             $table->date('df'); 
             $table->softDeletes(); // Adds the 'deleted_at' column for soft deletes

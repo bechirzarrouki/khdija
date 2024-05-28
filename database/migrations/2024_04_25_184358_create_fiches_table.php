@@ -18,6 +18,7 @@ class CreateFichesTable extends Migration
             $table->string('name');
             $table->text('description')->nullable();
             $table->string('type')->nullable();
+            $table->string('data');
             $table->timestamps();
             $table->softDeletes();
         });

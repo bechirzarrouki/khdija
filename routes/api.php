@@ -14,6 +14,7 @@ Route::get('equipements-deleted', [EquipementController::class, 'deleted']);
 Route::post('/register', [RegisterController::class, 'register']);
 Route::post('/login', [LoginController::class, 'login']);
 Route::get('/show/{id}', [UserController::class, 'show']);
+Route::get('/search', [UserController::class, 'search']);
 Route::get('/index', [UserController::class, 'index']);
 Route::put('/update/{id}', [UserController::class, 'update']);
 Route::delete('/delete/{id}', [UserController::class, 'destroy']);

@@ -10,7 +10,7 @@ class Equipement extends Model
 {
     use HasFactory, SoftDeletes;
     protected $table = 'equipements';
-    protected $fillable = ['name', 'description','da','df'];
+    protected $fillable = ['name', 'description','da','df','data'];
 
     protected $dates = ['deleted_at'];
     

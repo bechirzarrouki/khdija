@@ -21,7 +21,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             // Authentication passed...
             $user = Auth::user();
-            return response()->json(['user_id' => $user->id], 200);
+            return response()->json([$user], 200);
         }
 
         // Authentication failed
