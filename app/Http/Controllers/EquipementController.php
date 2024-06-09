@@ -43,9 +43,21 @@ class EquipementController extends Controller
         return response()->json(null, 204);
     }
 
-    // Additional method to retrieve soft deleted equipements
+    // Method to retrieve soft deleted equipements
     public function deleted()
     {
         return Equipement::onlyTrashed()->get();
+    }
+
+    // Method to search equipment by name
+    public function search(Request $request)
+    {
+        $searchTerm = $request->query('name');
+        if (!$searchTerm) {
+            return response()->json([], 400); // Bad request if no name query parameter is provided
+        }
+
+        $results = Equipement::where('name', 'LIKE', '%' . $searchTerm . '%')->get();
+        return response()->json($results);
     }
 }

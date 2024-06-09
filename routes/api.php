@@ -21,7 +21,8 @@ Route::delete('/delete/{id}', [UserController::class, 'destroy']);
 Route::post('/password/reset', [PasswordResetController::class, 'sendResetLink']);
 Route::post('/password/reset/{token}', [PasswordResetController::class, 'resetPassword']);
 Route::get('deleted-fiches', [FicheController::class, 'getDeletedFiches']);
-
+Route::get('e/search', [EquipementController::class, 'search']);
+Route::get('fiches/search', [FicheController::class, 'search']);
 
 Route::resource('fiches', FicheController::class);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

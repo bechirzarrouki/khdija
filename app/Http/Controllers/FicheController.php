@@ -44,9 +44,11 @@ class FicheController extends Controller
         if (!empty($request->da)) {
             $fiche->type = $request->type;
         }
+
         if (!empty($request->df)) {
             $fiche->type = $request->type;
         }
+        
         $fiche->save();
         return response()->json($fiche, 200);
     }
@@ -58,9 +60,22 @@ class FicheController extends Controller
         $fiche->delete();
         return response()->json(null, 204);
     }
+
     public function getDeletedFiches()
     {
         $deletedFiches = Fiche::onlyTrashed()->get();
         return response()->json($deletedFiches, 200);
+    }
+
+    // Method to search fiches by name
+    public function search(Request $request)
+    {
+        $searchTerm = $request->query('name');
+        if (!$searchTerm) {
+            return response()->json([], 400); // Bad request if no name query parameter is provided
+        }
+
+        $results = Fiche::where('name', 'LIKE', '%' . $searchTerm . '%')->get();
+        return response()->json($results);
     }
 }
